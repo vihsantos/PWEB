@@ -1,0 +1,66 @@
+.container-veiculosf{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.content-veicf{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.card-veiculo{
+    margin-left: 30px;
+    margin-right: 30px;
+    background-color: #010F1D;
+    border: 2px solid #AE8008;
+    height: 260px;
+    width: 260px;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
+.nome-veiculo{
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 10px;
+    font-size: 12px;
+}
+.campos-cardveiculo{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    margin-top: 2px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 12px;
+}
+.label-cardveiculo{
+    font-weight: bold;
+}
+.valor-cardveiculo{
+    margin-left: 10px;
+}
+
+.carro-image{
+    display: flex;
+    align-self: center;
+    width: 128px;
+    height: 72px;
+}
+
+.adicionar-veicf{
+    background-color: #010F1D;
+    border: 2px solid #AE8008;
+    height: 260px;
+    width: 260px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.adicionar-img{
+    height: 150px;
+    width: 150px;
+}
