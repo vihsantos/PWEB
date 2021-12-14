@@ -1,0 +1,36 @@
+.container-reservasf{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.content-reservasf{
+    display: flex;
+    flex-wrap: wrap;
+}
+.card-reservasf{
+    width: 200px;
+    height: 200px;
+    background-color: #010F1D;
+    border: 2px solid #AE8008;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.campo-reservasf{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.label-reservasf{
+    margin-left: 10px;
+    font-weight: bold;
+}
+.valor-reservasf{
+    font-size: 13px;
+    margin-left: 10px;
+}
