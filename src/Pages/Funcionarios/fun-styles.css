@@ -1,0 +1,73 @@
+.container-fun{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.content-fun{
+    display: flex;
+    flex-wrap: wrap;
+}
+.card-funcionarios{
+    background-color: #010F1D;
+    height: 250px;
+    width: 400px;
+    border-radius: 60px;
+    border: 2px solid #AE8008;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+.circle-person{
+    align-self: center;
+    width: 100px;
+    height: 100px;
+    background-color:#AE8008;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.person-img{
+    width: 60px;
+    height: 60px;
+}
+
+.campos-fun{
+    display: flex;
+    flex-direction: row;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    margin-top: 10px;
+}
+
+.label-fun{
+    font-size: 16px;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.valor-fun{
+    font-size:16px;
+    margin-left: 10px;
+}
+
+.adicionar-funcionarios{
+    margin-top: 20px;
+    background-color: #010F1D;
+    height: 250px;
+    width: 400px;
+    border-radius: 60px;
+    border: 2px solid #AE8008;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+}
+
+.add-fun{
+    width: 150px;
+    height: 150px;
+}
