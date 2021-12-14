@@ -1,0 +1,52 @@
+.container-hmfuncionarios{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.content-hmf{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.quant-veiculos{
+    background-color: #010F1D;
+    width: 280px;
+    height: 300px;
+    border: 2px solid #AE8008;
+    border-radius: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.valor{
+    background-color: #AE8008;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    font-size: 60px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+
+.subtitulo-valor{
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.chart{
+    background-color: #010F1D;
+    border: 2px solid #AE8008;
+    border-radius: 28px;
+    width: 790px;
+    height: 300px;
+}
+
