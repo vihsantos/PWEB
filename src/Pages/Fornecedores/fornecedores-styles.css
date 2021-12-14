@@ -1,0 +1,36 @@
+.container-f{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.content-f{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card-fornecedores{
+    background-color: #010F1D;
+    width: 800px;
+    height: 300px;
+    border: 2px solid #AE8008;
+    border-radius: 60px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.add-fornecedores{
+    margin-top: 10px;
+    background-color: #010F1D;
+    width: 800px;
+    height: 300px;
+    border: 2px solid #AE8008;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.add-forn{
+    height: 150px;
+    width: 150px;
+}
