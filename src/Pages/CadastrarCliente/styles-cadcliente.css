@@ -1,0 +1,33 @@
+.container-cadcliente{
+    background-color: #010F1D;
+    margin: 10%;
+    width: 1000px;
+    height: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.titulo{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 42px;
+    font-weight: bold;
+    font-family: 'Sarpanch', sans-serif;
+    color: #AE8008;
+}
+
+.botao-cadastrar-cl{
+        margin-top: 40px;
+        width: 200px;
+        height: 60px;
+        background-color: #AE8008;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold;
+        color: #010F1D;
+        font-size: 18px;
+}
