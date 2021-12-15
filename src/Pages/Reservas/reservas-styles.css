@@ -8,29 +8,30 @@
     flex-wrap: wrap;
 }
 .card-reservasf{
-    width: 600px;
-    height: 250px;
+    width: 400px;
+    height: 100px;
     background-color: #010F1D;
     border: 2px solid #AE8008;
     border-radius: 40px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
 }
 .campo-reservasf{
+    margin: 10px;
     display: flex;
     flex-direction: column;
     align-items: baseline;
     font-family: 'Poppins', sans-serif;
     color: white;
-    font-size: 14px;
+    font-size: 15px;
     margin-top: 10px;
 }
 .label-reservasf{
-    margin-left: 10px;
     font-weight: bold;
 }
 .valor-reservasf{
-    font-size: 13px;
-    margin-left: 10px;
+    font-size: 12px;
+    align-self: center;
 }

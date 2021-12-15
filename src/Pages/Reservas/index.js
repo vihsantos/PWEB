@@ -17,11 +17,7 @@ export default function Reservas(){
                         <div className="valor-reservasf"> Qualquer</div>
                     </div>
                     <div className="campo-reservasf">
-                        <div className="label-reservasf">Reservado dia:</div>
-                        <div className="valor-reservasf"> Qualquer</div>
-                    </div>
-                    <div className="campo-reservasf">
-                        <div className="label-reservasf">Entrega dia:</div>
+                        <div className="label-reservasf">Aprovacão:</div>
                         <div className="valor-reservasf"> Qualquer</div>
                     </div>
                 </div>
