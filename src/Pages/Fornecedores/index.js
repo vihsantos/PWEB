@@ -32,14 +32,9 @@ export default function Fornecedores(){
                     fornecedores.map((fornecedor)=>{
                         return(
                             <div className="card-fornecedores">
-                                <div className="campo-fornecedores">
-                                    <div className="label-fornecedores">
-                                        Nome da Empresa:
-                                    </div>
-                                    <div className="valor-fornecedores">
+                                    <div className="titulo-card-fornecedor">
                                         {fornecedor.nome}
                                     </div>
-                                </div>
                                 <div className="campo-fornecedores">
                                     <div className="label-fornecedores">
                                         CNPJ:

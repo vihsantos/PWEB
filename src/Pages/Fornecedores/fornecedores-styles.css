@@ -33,6 +33,14 @@
     font-family: 'Poppins', sans-serif;
     color: white;
 }
+.titulo-card-fornecedor{
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-style: italic;
+}
 .label-fornecedores{
     font-weight: bold;
     margin-right: 10px;
