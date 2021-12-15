@@ -1,5 +1,6 @@
 import "./reservas-styles.css"
 import NavBarFuncionarios from "../componentes/NavBarFuncionarios"
+import React from "react";
 
 export default function Reservas(){
     return (
