@@ -1,6 +1,6 @@
 import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
-import { db } from 'configuracoes/firebaseConfig';
+import { db } from 'configuracoes/firebase';
 import './cv-styles.css';
 
 export default function CadVeiculos(){
