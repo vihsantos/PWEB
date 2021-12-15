@@ -13,7 +13,6 @@ import CadFornecedores from "../Pages/CadFornecedores";
 import Funcionarios from "../Pages/Funcionarios"
 import VeiculosF from "../Pages/VeiculosF"
 import Fornecedores from "../Pages/Fornecedores";
-import VeiculosC from "../Pages/VeiculosC";
 import Reservar from "../Pages/Reservar";
 
 const Rotas = () => {
@@ -31,7 +30,6 @@ const Rotas = () => {
            <Route component = { Funcionarios }  path="/funcionarios" />
            <Route component = { VeiculosF }  path="/veiculosf" />
            <Route component = { Fornecedores }  path="/fornecedores" />
-           <Route component = { VeiculosC }  path="/veiculosc"/>
            <Route component = { Reservar }  path="/reservar"/>
 
        </BrowserRouter>
