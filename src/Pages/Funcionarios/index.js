@@ -1,7 +1,7 @@
 import './fun-styles.css';
-import Person from "/pweb/src/assets/person.png"
+import Person from "assets/person.png"
 import NavBarFuncionarios from '../componentes/NavBarFuncionarios';
-import IconAdd from "/pweb/src/assets/icon-add.png"
+import IconAdd from "assets/icon-add.png"
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { useEffect } from 'react';
