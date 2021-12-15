@@ -29,7 +29,7 @@ export default function VeiculosF(){
                 {
                     veiculos.map((veiculo)=> {
                         return(
-                            <div className="card-veiculo">
+                            <div className="card-veiculo" id={veiculo.id}>
                                 <img className="carro-image" src={veiculo.imagem} alt="carrinho"></img>
                                 <div className="nome-veiculo">{veiculo.nome}</div>
                                 <div className="campos-cardveiculo">
