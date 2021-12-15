@@ -74,19 +74,3 @@ export default function VeiculosF(){
         </div>
     );
 }
-
-
-
-
-
-
-
-// id: docs.id,
-// nome: docs.nome,
-// cor: docs.cor,
-// marca: docs.marca,
-// classificacao: docs.classificacao,
-// placa: docs.placa,
-// cadeiras: docs.cadeiras,
-// renovam: docs.renovam,
-// chassi: docs.nome,

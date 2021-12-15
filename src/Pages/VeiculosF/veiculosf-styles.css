@@ -49,8 +49,10 @@
 .carro-image{
     display: flex;
     align-self: center;
-    width: 122px;
-    height: 86px;
+    max-width:160px;
+    max-height:90px;
+    width: auto;
+    height: auto;
 }
 
 .adicionar-veicf{
