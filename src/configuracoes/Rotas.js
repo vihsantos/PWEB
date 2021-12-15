@@ -18,7 +18,7 @@ import Reservar from "../Pages/Reservar";
 const Rotas = () => {
    return(
        <BrowserRouter>
-           <Route component = { StartPage }  path="/" exact />
+           <Route component = { StartPage }  path="/start" exact />
            <Route component = { Login }  path="/login" />
            <Route component = { CadastrarCliente }  path="/cadcliente" />
            <Route component = { HomePageFuncionarios }  path="/homef" />
