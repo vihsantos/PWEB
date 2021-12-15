@@ -7,11 +7,12 @@
 .content-fun{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 .card-funcionarios{
     background-color: #010F1D;
     height: 250px;
-    width: 400px;
+    width: 300px;
     border-radius: 60px;
     border: 2px solid #AE8008;
     display: flex;
@@ -58,7 +59,7 @@
     margin-top: 20px;
     background-color: #010F1D;
     height: 250px;
-    width: 400px;
+    width: 300px;
     border-radius: 60px;
     border: 2px solid #AE8008;
     display: flex;

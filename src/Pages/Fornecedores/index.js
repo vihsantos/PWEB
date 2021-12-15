@@ -1,22 +1,90 @@
 import "./fornecedores-styles.css";
 import NavBarFuncionarios from '../componentes/NavBarFuncionarios';
 import IconAdd from "/pweb/src/assets/icon-add.png"
+import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "services/firebase";
+
 
 
 export default function Fornecedores(){
+    const [fornecedores, setFornecedores] = useState([]);
+    const fornecedoresCollectionsRef = collection(db, "fornecedor");
+    
+    useEffect(()=>{
+
+        const getFornecedores = async () =>{
+            const data = await getDocs(fornecedoresCollectionsRef);
+            setFornecedores(data.docs.map((doc) => ({
+                ...doc.data(), id: doc.id
+            })))
+            console.log(data);
+        }
+        getFornecedores()
+    }, [])
+
     return (
         <div className="container-f">
             <NavBarFuncionarios></NavBarFuncionarios>
             <div className="content-f">
-                <div className="card-fornecedores">
-
-                </div>
+            {
+                    fornecedores.map((fornecedor)=>{
+                        return(
+                            <div className="card-fornecedores">
+                                <div className="campo-fornecedores">
+                                    <div className="label-fornecedores">
+                                        Nome da Empresa:
+                                    </div>
+                                    <div className="valor-fornecedores">
+                                        {fornecedor.nome}
+                                    </div>
+                                </div>
+                                <div className="campo-fornecedores">
+                                    <div className="label-fornecedores">
+                                        CNPJ:
+                                    </div>
+                                    <div className="valor-fornecedores">
+                                        {fornecedor.cnpj}
+                                    </div>
+                                </div>
+                                <div className="campo-fornecedores">
+                                    <div className="label-fornecedores">
+                                        Produtos Oferecidos:
+                                    </div>
+                                    <div className="valor-fornecedores">
+                                        {fornecedor.prodoferecidos}
+                                    </div>
+                                </div>
+                                <div className="campo-fornecedores">
+                                    <div className="label-fornecedores">
+                                        Endereço:
+                                    </div>
+                                    <div className="valor-fornecedores">
+                                        {fornecedor.endereço}
+                                    </div>
+                                </div>
+                                <div className="campo-fornecedores">
+                                    <div className="label-fornecedores">
+                                        Contato:
+                                    </div>
+                                    <div className="valor-fornecedores">
+                                        {fornecedor.contatoempresa}
+                                    </div>
+                                </div>
+                            </div> 
+                        );
+                    })
+                }
                 <div className="add-fornecedores">
-                    <img src={IconAdd} alt="add-fornecedores" className="add-forn">
-                    </img>
+                    <Link to="/cadfornecedores">
+                        <img src={IconAdd} alt="add-fornecedores" className="add-forn">
+                        </img>
+                    </Link>
                 </div>
             </div>
-
         </div>
     );
 }
+
+
