@@ -1,23 +1,35 @@
 import "./veiculosf-styles.css";
 import NavBarFuncionarios from "../componentes/NavBarFuncionarios";
 import IconAdd from "/pweb/src/assets/icon-add.png";
-import { useState, useEffect } from 'react';
-import {  db } from '/pweb/src/services/firebase.js';
-import {getFirestore, getDocs, collection} from 'firebase/firestore';
+import { Link } from 'react-router-dom';
+import React, { useEffect, useReducer } from "react";
+import { useState } from "react";
+import { db } from "services/firebase";
+import {collection, getDocs} from "firebase/firestore";
 
-
-//updateDoc, deleteDoc, doc, addDoc,
 
 export default function VeiculosF(){
+    const [veiculos, setVeiculos] = useState([]);
+    const veiculosCollectionsRef = collection(db, "veiculos");
+    useEffect(()=>{
+
+        const getVeiculos = async () =>{
+            const data = await getDocs(veiculosCollectionsRef);
+            setVeiculos(data.docs.map((doc) => ({
+                ...doc.data(), id: doc.id
+            })))
+        }
+        getVeiculos()
+    }, [])
 
     return(
         <div className="container-veiculosf">
             <NavBarFuncionarios></NavBarFuncionarios>
             <div className="content-veicf">
-                {/* {
-                    veiculos.map((veiculo) => {
+                {
+                    veiculos.map((veiculo)=> {
                         return(
-                            <div className="card-veiculo" key={veiculo.id}>
+                            <div className="card-veiculo">
                                 <img className="carro-image" src={veiculo.imagem} alt="carrinho"></img>
                                 <div className="nome-veiculo">{veiculo.nome}</div>
                                 <div className="campos-cardveiculo">
@@ -51,10 +63,12 @@ export default function VeiculosF(){
                             </div>
                         );
                     })
-                } */}
+                }
                 <div className="adicionar-veicf" >
+                    <Link to="/cadveiculos">
                     <img src={IconAdd} alt="adicionar" className="adicionar-img">
                     </img>
+                    </Link>
                 </div>
             </div>
         </div>

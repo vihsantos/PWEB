@@ -12,10 +12,11 @@
 .card-veiculo{
     margin-left: 30px;
     margin-right: 30px;
+    margin-bottom: 30px;
     background-color: #010F1D;
     border: 2px solid #AE8008;
-    height: 260px;
-    width: 260px;
+    height: 280px;
+    width: 280px;
     border-radius: 18px;
     display: flex;
     flex-direction: column;
@@ -26,6 +27,7 @@
     font-family: 'Poppins', sans-serif;
     margin-left: 10px;
     font-size: 12px;
+    font-weight: bold;
 }
 .campos-cardveiculo{
     display: flex;
@@ -46,21 +48,21 @@
 .carro-image{
     display: flex;
     align-self: center;
-    width: 128px;
-    height: 72px;
+    width: 122px;
+    height: 86px;
 }
 
 .adicionar-veicf{
     background-color: #010F1D;
     border: 2px solid #AE8008;
-    height: 260px;
-    width: 260px;
+    height: 280px;
+    width: 280px;
     border-radius: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .adicionar-img{
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
 }
