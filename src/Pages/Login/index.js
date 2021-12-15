@@ -1,7 +1,7 @@
 import "./styles-login.css";
 import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from 'firebaseConfig';
+import { auth } from 'configuracoes/firebaseConfig';
 
 
 export default function Login(){

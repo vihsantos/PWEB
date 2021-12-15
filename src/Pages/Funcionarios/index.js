@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 import { useEffect } from 'react';
 import {collection, getDocs} from "firebase/firestore";
-import { db } from 'firebaseConfig';
+import { db } from 'configuracoes/firebaseConfig';
 import { useState } from 'react';
 
 

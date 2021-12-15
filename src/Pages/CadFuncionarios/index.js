@@ -1,6 +1,6 @@
 import { addDoc, collection, doc, DocumentSnapshot } from 'firebase/firestore';
 import React, { useState } from 'react';
-import { db } from 'firebaseConfig';
+import { db } from 'configuracoes/firebaseConfig';
 import './cfun-styles.css';
 
 export default function CadFuncionarios(){

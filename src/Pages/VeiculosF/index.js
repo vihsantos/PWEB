@@ -4,7 +4,7 @@ import IconAdd from "assets/icon-add.png";
 import { Link } from 'react-router-dom';
 import React, { useEffect, useReducer } from "react";
 import { useState } from "react";
-import { db } from "firebaseConfig";
+import { db } from "configuracoes/firebaseConfig";
 import {collection, getDocs} from "firebase/firestore";
 
 
