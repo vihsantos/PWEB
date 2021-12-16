@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, BrowserRouter } from "react-router-dom";
+import { Route, BrowserRouter, HashRouter } from "react-router-dom";
 
 import StartPage from "../Pages/StartPage";
 import Login from "../Pages/Login";
@@ -17,8 +17,8 @@ import Reservar from "../Pages/Reservar";
 
 const Rotas = () => {
    return(
-       <BrowserRouter>
-           <Route component = { StartPage }  path="/start" exact />
+       <HashRouter>
+           <Route component = { StartPage }  path="/" exact />
            <Route component = { Login }  path="/login" />
            <Route component = { CadastrarCliente }  path="/cadcliente" />
            <Route component = { HomePageFuncionarios }  path="/homef" />
@@ -32,7 +32,7 @@ const Rotas = () => {
            <Route component = { Fornecedores }  path="/fornecedores" />
            <Route component = { Reservar }  path="/reservar"/>
 
-       </BrowserRouter>
+       </HashRouter >
    )
 }
 
