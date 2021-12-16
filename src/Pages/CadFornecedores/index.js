@@ -1,6 +1,6 @@
 import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
-import { db } from 'configuracoes/Firebase';
+import { db } from '/pweb/src/configuracoes/Firebase';
 import './cf-styles.css';
 
 export default function CadFornecedores(){

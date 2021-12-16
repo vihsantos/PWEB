@@ -1,10 +1,10 @@
 import "./fornecedores-styles.css";
 import NavBarFuncionarios from '../componentes/NavBarFuncionarios';
-import IconAdd from "assets/icon-add.png"
+import IconAdd from "/pweb/src/assets/icon-add.png"
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "configuracoes/Firebase";
+import { db } from '/pweb/src/configuracoes/Firebase';
 
 
 
