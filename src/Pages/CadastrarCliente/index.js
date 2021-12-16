@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword, reauthenticateWithCredential } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import React, { useState } from "react";
-import { auth, db } from "configuracoes/Firebase";
+import { db , auth} from '/pweb/src/configuracoes/Firebase';
 import "./styles-cadcliente.css";
 
 export default function CadastrarCliente(){

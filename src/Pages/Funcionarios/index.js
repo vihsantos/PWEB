@@ -1,12 +1,12 @@
 import './fun-styles.css';
-import Person from "assets/person.png"
+import Person from "/pweb/src/assets/person.png"
 import NavBarFuncionarios from '../componentes/NavBarFuncionarios';
-import IconAdd from "assets/icon-add.png"
+import IconAdd from "/pweb/src/assets/icon-add.png"
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { useEffect } from 'react';
 import {collection, getDocs} from "firebase/firestore";
-import { db } from 'configuracoes/Firebase';
+import { db } from '/pweb/src/configuracoes/Firebase';
 import { useState } from 'react';
 
 

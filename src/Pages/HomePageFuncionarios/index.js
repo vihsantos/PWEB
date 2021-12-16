@@ -2,7 +2,7 @@ import "./hm_funcionarios.css";
 import NavBarFuncionarios from "../componentes/NavBarFuncionarios"
 import React, { useEffect, useState } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { db } from "configuracoes/Firebase";
+import { db } from '/pweb/src/configuracoes/Firebase';
 
 export default function HomePageFuncionarios(){
     

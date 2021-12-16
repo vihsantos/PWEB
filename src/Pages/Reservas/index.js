@@ -2,7 +2,7 @@ import "./reservas-styles.css"
 import NavBarFuncionarios from "../componentes/NavBarFuncionarios"
 import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "configuracoes/Firebase";
+import { db } from '/pweb/src/configuracoes/Firebase';
 
 export default function Reservas(){
     const [reservasf, setReservasf] = useState([]);
