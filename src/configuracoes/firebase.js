@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from '@firebase/firestore';
 import {getAuth} from 'firebase/auth';
+import { createContext } from 'react';
 
 
 const firebaseConfig = {
@@ -14,6 +15,8 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+
+export const AuthContext = createContext;
 
 export const db = getFirestore(app);
 
