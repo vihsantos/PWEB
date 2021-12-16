@@ -12,9 +12,11 @@ import { useState } from 'react';
 
 export default function Funcionarios(){
     const [funcionarios, setFuncionarios] = useState([]);
+    
     const funcionariosCollectionsRef = collection(db, "funcionarios");
+    
+    
     useEffect(()=>{
-
         const getFuncionarios = async () =>{
             const data = await getDocs(funcionariosCollectionsRef);
             setFuncionarios(data.docs.map((doc) => ({
@@ -23,6 +25,7 @@ export default function Funcionarios(){
         }
         getFuncionarios()
     }, [])
+
 
     return (
         <div className='container-fun'>
