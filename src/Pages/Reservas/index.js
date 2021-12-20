@@ -1,10 +1,10 @@
 import "./reservas-styles.css"
 import NavBarFuncionarios from "../componentes/NavBarFuncionarios"
 import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
 import { getReservasf } from "../../configuracoes/Firebase";
 
 export default function Reservas(){
+
     
      const [reservasf, setReservasf] = useState([]);
 
@@ -15,7 +15,7 @@ export default function Reservas(){
                 reservasf.map((r)=>{
                     return {
                         id: r.id,
-                        nomeCliente: r.nomeCliente,
+                        nome: r.nome,
                         estado: r.estado,
                         veiculo: r.veiculo,
                     }
@@ -32,12 +32,11 @@ export default function Reservas(){
                 {
                     reservasf.map((reservaf)  =>{
                         return(
-                            <div className="card-reservasf" id={reservaf.id} 
-                            onClick={<Navigate to={{ pathname: "/devolucao",}}
-                              />}>
+                            <div className="card-reservasf" id={reservaf.id} onClick={null}
+                            >
                                 <div className="campo-reservasf">
                                     <div className="label-reservasf">Cliente:</div>
-                                    <div className="valor-reservasf"> {reservaf.nomeCliente}</div>
+                                    <div className="valor-reservasf"> {reservaf.nome}</div>
                                 </div>
                                 <div className="campo-reservasf">
                                     <div className="label-reservasf">Veiculo:</div>

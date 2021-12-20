@@ -1,7 +1,6 @@
-import { setDoc, doc } from 'firebase/firestore';
 import React, { useState } from 'react';
-import { db } from '/pweb/src/configuracoes/Firebase';
 import './cfun-styles.css';
+import { cadastrarFuncionario } from '../../configuracoes/Firebase';
 
 export default function CadFuncionarios(){
     
@@ -13,31 +12,9 @@ export default function CadFuncionarios(){
     const [email, setEmail]= useState('');
     const [senha, setSenha]= useState('');
 
-    const funcionarioCollectionRef= doc(db, "funcionarios")
-
-    const cadastrarFuncionario = async () =>{
-        await setDoc(funcionarioCollectionRef, {
-            nome: nome,
-            cargo: cargo,
-            cpf: cpf,
-            rg: rg,
-            privacessos: privacessos,
-            email: email,
-            senha: senha
-        })
-
-        // await createUserWithEmailAndPassword(email, senha)
-        // .then((userCredential) => {
-        //     // Signed in
-        //     var user = userCredential.user;
-        //     // ...
-        // })
-        // .catch((error) => {
-        //     var errorCode = error.code;
-        //     var errorMessage = error.message;
-        //     // ..
-        // });
-    };
+    const aoClickcf = async () => {
+        await  cadastrarFuncionario(nome, cargo, cpf, rg, privacessos, email, senha)
+    }
 
     return (
         <div className='container-cadfun'>
@@ -77,7 +54,7 @@ export default function CadFuncionarios(){
                 <label htmlFor="senha">Senha:</label>
                 <input type="password" placeholder="Digite a sua senha..." onChange={(event)=>{setSenha(event.target.value)}}></input>
             </div>
-            <div className="botao-cadastrar-cl" onClick={cadastrarFuncionario}>
+            <div className="botao-cadastrar-cl" onClick={()=> aoClickcf()}>
                 Cadastrar
             </div>
         </div>

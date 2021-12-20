@@ -13,12 +13,14 @@ import CadFornecedores from "../Pages/CadFornecedores";
 import Funcionarios from "../Pages/Funcionarios"
 import VeiculosF from "../Pages/VeiculosF"
 import Fornecedores from "../Pages/Fornecedores";
-import Reservasc from "../Pages/Reservasc";
+import Devolucao from "../Pages/Devolucao"
+import Reservar from "../Pages/Reservar"
+import Escolha from "../Pages/Escolha"
 
 const Rotas = () => {
    return(
-       <HashRouter>
-           <Routes>
+           <HashRouter>
+               <Routes>
                 <Route element = { <StartPage/> }  path="/" exact />
                 <Route element = { <CadastrarCliente/> }  path="/cadcliente" />
                 <Route element = { <HomePageFuncionarios/> }  path="/homef" />
@@ -30,10 +32,12 @@ const Rotas = () => {
                 <Route element = { <Funcionarios/> }  path="/funcionarios" />
                 <Route element = { <VeiculosF/> }  path="/veiculosf" />
                 <Route element = { <Fornecedores/> }  path="/fornecedores" />
-                <Route element = { <Reservasc/> }  path="/reservasc"/>
                 <Route element = { <Login/> }  path="/login" />
+                <Route element = { <Devolucao/> }  path="/devolucao" />
+                <Route element = { <Reservar/> }  path="/reservar" />
+                <Route element = { <Escolha/> }  path="/escolha" />
            </Routes>
-       </HashRouter >
+           </HashRouter>
    )
 }
 

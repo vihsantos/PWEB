@@ -1,0 +1,10 @@
+.container-reservar{
+    background-color: #010F1D;
+    margin: 10%;
+    width: 1000px;
+    height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

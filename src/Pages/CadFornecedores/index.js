@@ -1,7 +1,6 @@
-import { setDoc, doc } from 'firebase/firestore';
 import React, { useState } from 'react';
-import { db } from '/pweb/src/configuracoes/Firebase';
 import './cf-styles.css';
+import { cadastrarFornecedor } from '../../configuracoes/Firebase';
 
 export default function CadFornecedores(){
     const [nome, setNome] = useState("");
@@ -10,16 +9,8 @@ export default function CadFornecedores(){
     const [prodoferecidos, setProdoferecidos] = useState("");
     const [contatoempresa, setContatoempresa] = useState("");
 
-    const fornecedorCollectionRef= doc(db, "fornecedor")
-
-    const cadastrarFornecedor = async () => {
-        await setDoc(fornecedorCollectionRef, {
-            nome: nome,
-            cnpj: cnpj,
-            endereço: endereço,
-            prodoferecidos: prodoferecidos,
-            contatoempresa: contatoempresa,
-        })
+    const aoClickfor = async () => {
+        await  cadastrarFornecedor(nome, cnpj, endereço, prodoferecidos, contatoempresa)
     }
 
 
@@ -48,7 +39,7 @@ export default function CadFornecedores(){
                 <label htmlFor="contatoempresa">Contato da empresa:</label>
                 <input type="text" placeholder="Digite o contato da empresa..." onChange={(event)=>{setContatoempresa(event.target.value)}}></input>
             </div>
-            <div className="botao-cadastrar-cl" onClick={cadastrarFornecedor}>
+            <div className="botao-cadastrar-cl" onClick={()=>aoClickfor()}>
                 Cadastrar
             </div>
         </div>

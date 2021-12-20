@@ -14,9 +14,9 @@ export default function HomePageFuncionarios(){
                 reservasf.map((r)=>{
                     return {
                         id: r.id,
-                        nomeCliente: r.nomeCliente,
+                        nome: r.nome,
                         estado: r.estado,
-                        veiculo: r.veiculo,
+                        nomeveiculo: r.nomeveiculo,
                     }
                 })
             )
@@ -40,11 +40,11 @@ export default function HomePageFuncionarios(){
                                 <div className="card-reservasf-pendentes" id={detReserva.id}>
                                     <div className="campo-reservasf">
                                         <div className="label-reservasf">Cliente:</div>
-                                        <div className="valor-reservasf"> {detReserva.nomeCliente}</div>
+                                        <div className="valor-reservasf"> {detReserva.nome}</div>
                                     </div>
                                     <div className="campo-reservasf">
                                         <div className="label-reservasf">Veiculo:</div>
-                                        <div className="valor-reservasf"> {detReserva.veiculo}</div>
+                                        <div className="valor-reservasf"> {detReserva.nomeveiculo}</div>
                                     </div>
                                     <div className="campo-reservasf">
                                         <div className="label-reservasf">Estado:</div>

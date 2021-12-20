@@ -21,7 +21,7 @@ export default function Fornecedores(){
                         nome: f.nome,
                         cnpj: f.cnpj,
                         prodoferecidos: f.prodoferecidos,
-                        endereco: f.endereco,
+                        endereço: f.endereço,
                         contatoempresa: f.contatoempresa,
                     }
                 })

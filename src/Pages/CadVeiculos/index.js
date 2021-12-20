@@ -1,6 +1,5 @@
-import { setDoc, doc } from 'firebase/firestore';
 import React, { useState } from 'react';
-import { db } from '/pweb/src/configuracoes/Firebase';
+import { cadastrarVeiculo} from '/pweb/src/configuracoes/Firebase';
 import './cv-styles.css';
 
 export default function CadVeiculos(){
@@ -15,21 +14,8 @@ export default function CadVeiculos(){
     const [cor, setCor] = useState('');
     const [gps, setGPS] = useState("");
 
-    const veiculosCollectionRef= doc(db, "veiculos")
-
-    const cadastrarVeiculos = async () => {
-        await setDoc(veiculosCollectionRef, {
-            nome: nome,
-            imagem: imagem,
-            marca: marca,
-            placa: placa,
-            chassi: chassi,
-            renovam: renovam,
-            cadeiras: cadeiras,
-            classificacao: classificacao,
-            cor: cor,
-            gps: gps,
-        })
+    const aoClickV = async () => {
+        await  cadastrarVeiculo(nome, imagem, marca, placa, chassi, renovam, cadeiras, classificacao, cor, gps)
     }
 
     return (
@@ -82,7 +68,7 @@ export default function CadVeiculos(){
                 <label htmlFor="gps">GPS:</label>
                 <input type="text" placeholder="O veículo possui GPS?" onChange={(event)=>{setGPS(event.target.value)}}></input>
             </div>
-            <div className="botao-cadastrar-cl" onClick={cadastrarVeiculos}>
+            <div className="botao-cadastrar-cl" onClick={()=> aoClickV()}>
                 Cadastrar
             </div>
         </div>

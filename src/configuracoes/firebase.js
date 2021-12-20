@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs, where } from 'firebase/firestore';
-import {getAuth} from 'firebase/auth';
+import { getFirestore, collection, getDocs, where, addDoc, query, doc, updateDoc } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 
 
 const firebaseConfig = {
@@ -20,12 +20,11 @@ export const db = getFirestore(app);
 export const auth = getAuth(app);
 
 export const getFuncionarios = async () =>{
-          let dados;
           const data = await getDocs(collection(db, "funcionarios"));
 
           let funcionarios = []
 
-          dados= data.docs.forEach((doc) => {
+          data.docs.forEach((doc) => {
             funcionarios.push(
               {
                 id: doc.id,
@@ -40,12 +39,11 @@ export const getFuncionarios = async () =>{
   }
 
   export const getVeiculos = async () =>{
-    let dados;
     const data = await getDocs(collection(db, "veiculos"));
 
     let veiculos = []
 
-    dados= data.docs.forEach((doc) => {
+     data.docs.forEach((doc) => {
       veiculos.push(
         {
           id: doc.id,
@@ -66,19 +64,18 @@ export const getFuncionarios = async () =>{
 }
 
 export const getFornecedores = async () =>{
-  let dados;
   const data = await getDocs(collection(db, "fornecedor"));
 
   let fornecedores = []
 
-  dados= data.docs.forEach((doc) => {
+  data.docs.forEach((doc) => {
     fornecedores.push(
       {
         id: doc.id,
         nome: doc.data().nome,
         cnpj: doc.data().cnpj,
         prodoferecidos: doc.data().prodoferecidos,
-        endereco: doc.data().endereco,
+        endereço: doc.data().endereço,
         contatoempresa: doc.data().contatoempresa,
       }
     );
@@ -89,16 +86,15 @@ export const getFornecedores = async () =>{
 
 
 export const getReservasf = async () =>{
-  let dados;
-  const data = await getDocs(collection(db, "reservasf"));
+  const data = await getDocs(collection(db, "reservarc"));
 
   let reservasf = []
 
-  dados= data.docs.forEach((doc) => {
+  data.docs.forEach((doc) => {
     reservasf.push(
       {
         id: doc.id,
-        nomeCliente: doc.data().nomeCliente,
+        nome: doc.data().nome,
         estado: doc.data().estado,
         veiculo: doc.data().veiculo,
       }
@@ -109,21 +105,174 @@ export const getReservasf = async () =>{
 }
 
 export const getDetReservasf = async () =>{
-  let dados;
-  const data = await getDocs(collection(db, "reservasf"), where("estado", "==", "pendente"));
+  const data = await getDocs(collection(db, "reservarc"), where("estado", "==", "pendente"));
 
   let detreservasf = []
 
-  dados= data.docs.forEach((doc) => {
+   data.docs.forEach((doc) => {
     detreservasf.push(
       {
         id: doc.id,
-        nomeCliente: doc.data().nomeCliente,
+        nome: doc.data().nome,
         estado: doc.data().estado,
-        veiculo: doc.data().veiculo,
+        nomeveiculo: doc.data().veiculo,
       }
     );
   })
-
   return detreservasf;
 }
+
+export const getVeiculosNReser = async () =>{
+  const data = await getDocs(query(collection(db, "veiculos"), where("reservado", "==", false)));
+
+  let veiculosNReser = []
+
+   data.docs.forEach((doc) => {
+    veiculosNReser.push(
+      {
+        id: doc.id,
+        nome: doc.data().nome,
+        imagem: doc.data().imagem,
+        cadeiras: doc.data().cadeiras,
+        reservado: doc.data().reservado,
+        marca: doc.data().marca,
+      }
+    );
+  })
+  console.log(data)
+  return veiculosNReser;
+}
+
+export const cadastrarCliente =  async (nome, cpf, rg, endereco, cnh, email, senha) =>{
+        
+      try {
+        await addDoc(collection(db, "clientes"),{
+          nome: nome,
+          cpf: cpf,
+          rg: rg,
+          endereco: endereco,
+          cnh: cnh,
+          email:  email,
+          senha: senha
+          
+        })              
+
+      } catch (error) {
+        console.log(error);
+      }
+      
+};
+
+export const cadastrarVeiculo =  async (nome, imagem, marca, placa, chassi, renovam, cadeiras, classificacao, cor, gps) =>{
+        
+  try {
+    await addDoc(collection(db, "veiculos"),{
+      id: doc.id,
+      nome: nome,
+      imagem: imagem,
+      marca: marca,
+      placa: placa,
+      chassi: chassi,
+      renovam: renovam,
+      cadeiras: cadeiras,
+      classificacao: classificacao,
+      cor: cor,
+      gps: gps,
+      reservado: false,
+      
+    })              
+
+  } catch (error) {
+    console.log(error);
+  }
+  
+};
+
+export const cadastrarFuncionario =  async (nome, cargo, cpf, rg, privacessos, email, senha) =>{
+        
+  try {
+    await addDoc(collection(db, "funcionarios"),{
+      nome: nome,
+      cargo: cargo,
+      cpf: cpf,
+      rg: rg,
+      privacessos: privacessos,
+      email: email,
+      senha: senha,
+    })              
+
+  } catch (error) {
+    console.log(error);
+  }
+  
+};
+
+export const cadastrarFornecedor =  async (nome, cnpj, endereço, prodoferecidos, contatoempresa) =>{
+        
+  try {
+    await addDoc(collection(db, "fornecedor"),{
+      nome: nome,
+      cnpj: cnpj,
+      endereço: endereço,
+      prodoferecidos: prodoferecidos,
+      contatoempresa: contatoempresa
+    })              
+
+  } catch (error) {
+    console.log(error);
+  }
+  
+};
+
+export const reservar =  async (nome, nomeveiculo, periodolocacao, tiposeguro) =>{
+        
+  try {
+    await addDoc(collection(db, "reservarc"),{
+      nome: nome,
+      estado: "reservada",
+      nomeveiculo: nomeveiculo,
+      periodolocacao: periodolocacao,
+      tiposeguro: tiposeguro
+    })              
+
+  } catch (error) {
+    console.log(error);
+  }
+  
+};
+
+export const editarReservaVeiculo = async (nome) =>{
+
+  try {
+
+    const veicReservaRef = query(collection(db, "veiculos"), where("nome", "==", nome))
+
+    console.log(veicReservaRef)
+
+
+    await updateDoc(veicReservaRef, {
+      reservado: true
+    });
+    
+  } catch (error) {
+    
+  }
+
+};
+
+
+// export const criarUsuario = async (email,senha) => {
+//   await createUserWithEmailAndPassword(auth, email, senha);
+// }
+
+// export const getCliente = async (email) =>{
+
+//   let data;
+
+//    data = await getDocs(collection(db, "clientes"), where("email", "==", "luanr@gmail.com"));
+
+//    console.log(data)
+
+  
+
+// }

@@ -5,6 +5,16 @@
 }
 .content-homec{
     display: flex;
+    flex-direction: column;
+}
+.titulo-homec{
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    color: greenyellow;
+}
+.cards-homec{
+    display: flex;
     flex-wrap: wrap;
 }
 .cardveiculo-cliente{
@@ -17,6 +27,8 @@
     background-color: #010F1D;
     border: 2px solid #AE8008;
     border-radius: 18px;
+    margin-left: 10px;
+    margin-top: 10px;
 }
 .label-veic{
     font-family: 'Poppins', sans-serif;

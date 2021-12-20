@@ -13,14 +13,14 @@ export default function StartPage(){
                     <img src="http://www.alexandreautomoveisrp.com.br/images/carros.png" alt="carros"></img>
                 </div>
                 <div className="botoes"> 
-                    <Link to={`/login`} >
+                    <Link to={`/escolha`} >
                     <div className="botao-login">
                             Login
                         </div>
                     </Link>
                     <Link to={`/cadcliente`} >
                         <div className="botao-cadastrar">
-                            Cadastrar
+                            Cadastrar Cliente
                         </div>
                     </Link>
                 </div>
