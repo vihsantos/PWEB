@@ -10,8 +10,8 @@ export default function HomePageClientes(){
         <div className='container-homec'>
             <NavBarClientes></NavBarClientes>
             <div className='content-homec'>
-                <div className='cardveiculo-cliente'>
-                    <img src={"veiculo.imagem"} className='imagem-veic' alt='imagem-veic'></img>
+                <div className='cardveiculo-cliente' onClick={null}>
+                    <img src={"http://www.locacaodeveiculos.com.br/wp-content/themes/locacaodeveiculos/assets/images/carro.png"} className='imagem-veic' alt='imagem-veic'></img>
                     <div className='label-veic'>veiculo.nome</div>
                     <div className='label-veic'>veiculo.marca</div>
                     <div className='label-veic'>veiculo.placa</div>

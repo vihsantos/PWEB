@@ -5,34 +5,51 @@ import IconAdd from "/pweb/src/assets/icon-add.png"
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { useEffect } from 'react';
-import {collection, getDocs} from "firebase/firestore";
-import { db } from '/pweb/src/configuracoes/Firebase';
 import { useState } from 'react';
+import { getFuncionarios } from '../../configuracoes/Firebase';
 
 
 export default function Funcionarios(){
-    const [funcionarios, setFuncionarios] = useState([]);
-    
-    const funcionariosCollectionsRef = collection(db, "funcionarios");
-    
-    
-    useEffect(()=>{
-        const getFuncionarios = async () =>{
-            const data = await getDocs(funcionariosCollectionsRef);
-            setFuncionarios(data.docs.map((doc) => ({
-                ...doc.data(), id: doc.id
-            })))
-        }
-        getFuncionarios()
+
+
+const [dfuncionarios, setDfuncionarios] = useState([])
+
+useEffect(()=>{
+
+    getFuncionarios().then(funcionarios => {
+        setDfuncionarios(
+            funcionarios.map((f)=>{
+                return {
+                    id: f.id,
+                    nome: f.nome,
+                    privacessos: f.privacessos
+                }
+            })
+        )
+    })
+
     }, [])
 
+
+    
+    // getFuncionarios().then(funcionarios => {
+    //     funcionarios.forEach(f => {
+    //         dfuncionarios.push(
+    //             {
+    //                 id: f.id,
+    //                 nome: f.nome,
+    //                 privacessos: f.privacessos
+    //             }
+    //         )
+    //     });
+    // })
 
     return (
         <div className='container-fun'>
             <NavBarFuncionarios></NavBarFuncionarios>
             <div className='content-fun'>
                 {
-                    funcionarios.map((funcionario)=>{
+                    dfuncionarios.map((funcionario)=>{
                         return(
                             <div className='card-funcionarios' id={funcionario.id}>
                                 <div className='circle-person'>
@@ -59,3 +76,10 @@ export default function Funcionarios(){
         </div>
     );
 }
+
+
+
+
+// id: doc.id,
+//                 nome: doc.data().nome,
+//                 privacessos: doc.data().privacessos

@@ -1,5 +1,5 @@
-import { createUserWithEmailAndPassword, reauthenticateWithCredential } from "firebase/auth";
-import { addDoc, collection } from "firebase/firestore";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { addDoc, collection, doc } from "firebase/firestore";
 import React, { useState } from "react";
 import { db , auth} from '/pweb/src/configuracoes/Firebase';
 import "./styles-cadcliente.css";
@@ -12,23 +12,22 @@ export default function CadastrarCliente(){
     const [cnh, setCnh] = useState('');
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-
-    const clientesCollectionRef= collection(db, "clientes")
+    
+    console.log(db);
 
     const cadastrarCliente = async ()=> {
         
         try {
-            const user = await createUserWithEmailAndPassword(auth, email, senha);
-            
-            await addDoc(clientesCollectionRef, {
-                nome: nome,
+                await addDoc(collection(db, "clientes"),{
+                    nome: nome,
                 cpf: cpf,
                 rg: rg,
                 endereco: endereco,
                 cnh: cnh,
                 email: email,
                 senha: senha
-            }); 
+                  })              
+                  const user = await createUserWithEmailAndPassword(auth, email, senha);
             console.log(user);
 
         } catch(error){
@@ -67,11 +66,11 @@ export default function CadastrarCliente(){
             </div>
             <div className="text-field">
                 <label htmlFor="senha">Senha:</label>
-                <input type="text" placeholder="Digite a sua senha..." onChange={(event)=>{setSenha(event.target.value)}}></input>
+                <input type="password" placeholder="Digite a sua senha..." onChange={(event)=>{setSenha(event.target.value)}}></input>
             </div>
-            <div className="botao-cadastrar-cl" onClick={cadastrarCliente}>
+            <button className="botao-cadastrar-cl" onClick={cadastrarCliente}>
                 Cadastrar
-            </div>
+            </button>
         </div>
     );
 }

@@ -3,26 +3,32 @@ import NavBarFuncionarios from '../componentes/NavBarFuncionarios';
 import IconAdd from "/pweb/src/assets/icon-add.png"
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from '/pweb/src/configuracoes/Firebase';
+import { getFornecedores } from "../../configuracoes/Firebase";
 
 
 
 export default function Fornecedores(){
-    const [fornecedores, setFornecedores] = useState([]);
-    const fornecedoresCollectionsRef = collection(db, "fornecedor");
     
+     const [fornecedores, setFornecedores] = useState([]);
+
     useEffect(()=>{
 
-        const getFornecedores = async () =>{
-            const data = await getDocs(fornecedoresCollectionsRef);
-            setFornecedores(data.docs.map((doc) => ({
-                ...doc.data(), id: doc.id
-            })))
-            console.log(data);
-        }
-        getFornecedores()
-    }, [])
+        getFornecedores().then(fornecedores => {
+            setFornecedores(
+                fornecedores.map((f)=>{
+                    return {
+                        id: f.id,
+                        nome: f.nome,
+                        cnpj: f.cnpj,
+                        prodoferecidos: f.prodoferecidos,
+                        endereco: f.endereco,
+                        contatoempresa: f.contatoempresa,
+                    }
+                })
+            )
+        })
+
+     }, [])
 
     return (
         <div className="container-f">

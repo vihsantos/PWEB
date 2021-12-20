@@ -1,4 +1,4 @@
-import { addDoc, collection } from 'firebase/firestore';
+import { setDoc, doc } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { db } from '/pweb/src/configuracoes/Firebase';
 import './cv-styles.css';
@@ -15,10 +15,10 @@ export default function CadVeiculos(){
     const [cor, setCor] = useState('');
     const [gps, setGPS] = useState("");
 
-    const veiculosCollectionRef= collection(db, "veiculos")
+    const veiculosCollectionRef= doc(db, "veiculos")
 
     const cadastrarVeiculos = async () => {
-        await addDoc(veiculosCollectionRef, {
+        await setDoc(veiculosCollectionRef, {
             nome: nome,
             imagem: imagem,
             marca: marca,

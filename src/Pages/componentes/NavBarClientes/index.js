@@ -12,7 +12,7 @@ export default function NavBarClientes(){
             </h1>
             <ul>
                     <li><Link to="/homec">Home</Link></li>
-                    <li><Link to="/reservar">Reservar</Link></li>
+                    <li><Link to="/reservasc">Minhas Reservas</Link></li>
                     <li>
                         <div className="sair" >
                             <img className="botao-sair" src={BotaoSair} alt="sair"></img>

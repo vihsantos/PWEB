@@ -1,23 +1,29 @@
 import "./reservas-styles.css"
 import NavBarFuncionarios from "../componentes/NavBarFuncionarios"
 import React, { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from '/pweb/src/configuracoes/Firebase';
+import { Navigate } from "react-router-dom";
+import { getReservasf } from "../../configuracoes/Firebase";
 
 export default function Reservas(){
-    const [reservasf, setReservasf] = useState([]);
-    const reservasfCollectionsRef = collection(db, "reservasf");
-    useEffect(()=>{
+    
+     const [reservasf, setReservasf] = useState([]);
 
-        const getreservasf = async () =>{
-            const data = await getDocs(reservasfCollectionsRef);
-            setReservasf(data.docs.map((doc) => ({
-                ...doc.data(), id: doc.id
-            })))
-            console.log(data);
-        }
-        getreservasf()
-    }, )
+     useEffect(()=>{
+
+        getReservasf().then(reservasf => {
+            setReservasf(
+                reservasf.map((r)=>{
+                    return {
+                        id: r.id,
+                        nomeCliente: r.nomeCliente,
+                        estado: r.estado,
+                        veiculo: r.veiculo,
+                    }
+                })
+            )
+        })
+
+     }, [])
 
     return (
         <div className="container-reservasf">
@@ -26,7 +32,9 @@ export default function Reservas(){
                 {
                     reservasf.map((reservaf)  =>{
                         return(
-                            <div className="card-reservasf" id={reservaf.id}>
+                            <div className="card-reservasf" id={reservaf.id} 
+                            onClick={<Navigate to={{ pathname: "/devolucao",}}
+                              />}>
                                 <div className="campo-reservasf">
                                     <div className="label-reservasf">Cliente:</div>
                                     <div className="valor-reservasf"> {reservaf.nomeCliente}</div>

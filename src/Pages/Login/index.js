@@ -5,6 +5,7 @@ import { auth } from '/pweb/src/configuracoes/Firebase';
 
 
 export default function Login(){
+    
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
@@ -35,7 +36,7 @@ export default function Login(){
                     <label htmlFor="senha">Senha:</label>
                     <input type="text" placeholder="Digite a sua senha..." onChange={(event)=>{setSenha(event.target.value)}}></input>
                 </div>
-                <button className="botao-entrar" >
+                <button className="botao-entrar" onClick={login}>
                     Entrar
                 </button>
             </div>

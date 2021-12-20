@@ -2,25 +2,39 @@ import "./veiculosf-styles.css";
 import NavBarFuncionarios from "../componentes/NavBarFuncionarios";
 import IconAdd from "/pweb/src/assets/icon-add.png"
 import { Link } from 'react-router-dom';
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
-import { db } from '/pweb/src/configuracoes/Firebase';
-import {collection, getDocs} from "firebase/firestore";
+import { getVeiculos } from "../../configuracoes/Firebase";
 
 
 export default function VeiculosF(){
+
+
     const [veiculos, setVeiculos] = useState([]);
-    const veiculosCollectionsRef = collection(db, "veiculos");
+
+
     useEffect(()=>{
 
-        const getVeiculos = async () =>{
-            const data = await getDocs(veiculosCollectionsRef);
-            setVeiculos(data.docs.map((doc) => ({
-                ...doc.data(), id: doc.id
-            })))
-        }
-        getVeiculos()
-    }, [])
+        getVeiculos().then(veiculos => {
+            setVeiculos(
+                veiculos.map((v)=>{
+                    return {
+                        id: v.id,
+                        nome: v.nome,
+                        imagem: v.imagem,
+                        cor: v.cor,
+                        classificacao: v.classificacao,
+                        cadeiras: v.cadeiras,
+                        marca: v.marca,
+                        placa: v.placa,
+                        renovam: v.renovam,
+                        chassi: v.chassi,
+                    }
+                })
+            )
+        })
+
+    },[])
 
     return(
         <div className="container-veiculosf">

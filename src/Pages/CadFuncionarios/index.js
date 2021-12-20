@@ -1,9 +1,10 @@
-import { addDoc, collection, doc, DocumentSnapshot } from 'firebase/firestore';
+import { setDoc, doc } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { db } from '/pweb/src/configuracoes/Firebase';
 import './cfun-styles.css';
 
 export default function CadFuncionarios(){
+    
     const [nome, setNome]= useState('');
     const [cargo, setCargo]= useState('');
     const [cpf, setCpf]= useState('');
@@ -12,12 +13,10 @@ export default function CadFuncionarios(){
     const [email, setEmail]= useState('');
     const [senha, setSenha]= useState('');
 
-    const funcionarioCollectionRef= collection(db, "funcionarios")
-
-    // const [select, setSelect]= useState();
+    const funcionarioCollectionRef= doc(db, "funcionarios")
 
     const cadastrarFuncionario = async () =>{
-        await addDoc(funcionarioCollectionRef, {
+        await setDoc(funcionarioCollectionRef, {
             nome: nome,
             cargo: cargo,
             cpf: cpf,
