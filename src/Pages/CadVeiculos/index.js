@@ -3,6 +3,7 @@ import { cadastrarVeiculo} from '/pweb/src/configuracoes/Firebase';
 import './cv-styles.css';
 
 export default function CadVeiculos(){
+    const reservado = false;
     const [nome, setNome] = useState('');
     const [imagem, setImagem] = useState('');
     const [marca, setMarca] = useState('');
@@ -15,7 +16,7 @@ export default function CadVeiculos(){
     const [gps, setGPS] = useState("");
 
     const aoClickV = async () => {
-        await  cadastrarVeiculo(nome, imagem, marca, placa, chassi, renovam, cadeiras, classificacao, cor, gps)
+        await  cadastrarVeiculo(nome, imagem, marca, placa, chassi, renovam, cadeiras, classificacao, cor, gps, reservado)
     }
 
     return (
@@ -68,9 +69,9 @@ export default function CadVeiculos(){
                 <label htmlFor="gps">GPS:</label>
                 <input type="text" placeholder="O veículo possui GPS?" onChange={(event)=>{setGPS(event.target.value)}}></input>
             </div>
-            <div className="botao-cadastrar-cl" onClick={()=> aoClickV()}>
+            <button className="botao-cadastrar-cl" onClick={()=> aoClickV()}>
                 Cadastrar
-            </div>
+            </button>
         </div>
     );
 }

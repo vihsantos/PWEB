@@ -163,11 +163,10 @@ export const cadastrarCliente =  async (nome, cpf, rg, endereco, cnh, email, sen
       
 };
 
-export const cadastrarVeiculo =  async (nome, imagem, marca, placa, chassi, renovam, cadeiras, classificacao, cor, gps) =>{
+export const cadastrarVeiculo =  async (nome, imagem, marca, placa, chassi, renovam, cadeiras, classificacao, cor, gps, reservado) =>{
         
   try {
     await addDoc(collection(db, "veiculos"),{
-      id: doc.id,
       nome: nome,
       imagem: imagem,
       marca: marca,
@@ -178,9 +177,8 @@ export const cadastrarVeiculo =  async (nome, imagem, marca, placa, chassi, reno
       classificacao: classificacao,
       cor: cor,
       gps: gps,
-      reservado: false,
-      
-    })              
+      reservado: reservado,
+    })       
 
   } catch (error) {
     console.log(error);
